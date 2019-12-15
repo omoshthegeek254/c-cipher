@@ -12,7 +12,7 @@ public class Encrypt {
     }
 
     public static String cipherText(Encrypt encode) {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder messageCharStrem = new StringBuilder();
         int length = encode.getRawText().length();
         for (int i = 0; i < length; i++) {
             char character = encode.getRawText().charAt(i);
@@ -20,23 +20,23 @@ public class Encrypt {
                 if (Character.isLowerCase(character)) {
                     char encodedCharacter = (char) (character + encode.getShiftKey());
                     if (encodedCharacter > 'z') {
-                        sb.append((char) (character - (26 - encode.getShiftKey())));
+                        messageCharStrem.append((char) (character - (26 - encode.getShiftKey())));
                     } else {
-                        sb.append(encodedCharacter);
+                        messageCharStrem.append(encodedCharacter);
                     }
                 } else if (Character.isUpperCase(character)) {
                     char encodedCharacter = (char) (character + encode.getShiftKey());
                     if (encodedCharacter > 'Z') {
-                        sb.append((char) (character - (26 - encode.getShiftKey())));
+                        messageCharStrem.append((char) (character - (26 - encode.getShiftKey())));
                     } else {
-                        sb.append(encodedCharacter);
+                        messageCharStrem.append(encodedCharacter);
                     }
                 }
             } else {
-                sb.append(character);
+                messageCharStrem.append(character);
             }
         }
-        return sb.toString();
+        return messageCharStrem.toString();
     }
 
     public String getRawText() {

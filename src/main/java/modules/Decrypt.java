@@ -2,12 +2,12 @@ package modules;
 
 public class Decrypt {
 
-    private String cipheredText;
+    private String userMessage;
     private int shiftKey;
 
 
-    public Decrypt(String cipheredText, int shiftKey) {
-        this.cipheredText = cipheredText;
+    public Decrypt(String userMessage, int shiftKey) {
+        this.userMessage = userMessage;
         this.shiftKey = shiftKey;
     }
 
@@ -15,9 +15,9 @@ public class Decrypt {
     {
 
         StringBuilder encryptedText = new StringBuilder();
-        int length = decode.getCipheredText().length();
+        int length = decode.getUserMessage().length();
         for(int i = 0; i < length; i++){
-            char myCharacter = decode.getCipheredText().charAt(i);
+            char myCharacter = decode.getUserMessage().charAt(i);
             if(Character.isLetter(myCharacter)){
                 if(Character.isLowerCase(myCharacter)){
                     char newCharacter = (char)(myCharacter - decode.getShiftKey());
@@ -45,8 +45,8 @@ public class Decrypt {
         return encryptedText.toString();
     }
 
-    public String getCipheredText() {
-        return this.cipheredText;
+    public String getUserMessage() {
+        return this.userMessage;
     }
 
     public int getShiftKey() {
