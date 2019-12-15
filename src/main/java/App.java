@@ -1,25 +1,33 @@
+import modules.Encrypt;
+import modules.Decrypt;
+
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class App {
-    public static void main(String [] args){
-        BufferedReader userInputReader= new BufferedReader(new InputStreamReader(System.in));
-        try{
-            System.out.println("Welcome Caesar Encryption Service");
-            System.out.println("Input the  message you would like to send: ");
-            String userMessage = userInputReader.readLine();
+    public static void main(String[] args) {
+        BufferedReader readerConsole = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            System.out.println("<====Welcome to Caesar Encryption Application====>");
+            System.out.println("Enter the message you would like to encode : ");
+            String userInput = readerConsole.readLine();
 
-            System.out.println("Enter a shift key between 1-26  : ");
-            int userShiftKey = Integer.parseInt(userInputReader.readLine());
+            System.out.println("Enter the Shift key between 1-26: ");
+            int userShift = Integer.parseInt(readerConsole.readLine());
 
+            System.out.println("Input String: " + userInput);
 
+            Encrypt newCaesar = new Encrypt(userInput, userShift);
+            String encrypted = Encrypt.cipherText(newCaesar);
+            System.out.println("Encrypted String: \n =====>OUTPUT<=====\n" + encrypted);
 
+            Decrypt caesar = new Decrypt(encrypted, userShift);
+            String decrypted = Decrypt.decrypt(caesar);
+            System.out.println("Decrypted String: \n=====>INPUT<====== \n" + decrypted);
 
-        }
-        catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("\n");
+        } catch (Exception e) {
+            System.out.println(e.getLocalizedMessage());
         }
     }
-
 }
