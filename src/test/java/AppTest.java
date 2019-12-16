@@ -5,8 +5,6 @@ import static org.junit.Assert.*;
 public class AppTest {
 
     @Test
-    public void main_promptInput_TextString(){
-        //tests go here
+    public void main() {
     }
-
 }
