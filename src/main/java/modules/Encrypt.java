@@ -2,45 +2,45 @@ package modules;
 
 public class Encrypt {
 
-    private String rawText;
+    private String userMessage;
     private int shiftKey;
 
 
-    public Encrypt(String rawText, int shiftKey) {
-        this.rawText = rawText;
+    public Encrypt(String userMessage, int shiftKey) {
+        this.userMessage = userMessage;
         this.shiftKey = shiftKey;
     }
 
     public static String cipherText(Encrypt encode) {
-        StringBuilder messageCharStrem = new StringBuilder();
-        int length = encode.getRawText().length();
+        StringBuilder messageCharStream = new StringBuilder();
+        int length = encode.getUserMessage().length();
         for (int i = 0; i < length; i++) {
-            char character = encode.getRawText().charAt(i);
+            char character = encode.getUserMessage().charAt(i);
             if (Character.isLetter(character)) {
                 if (Character.isLowerCase(character)) {
                     char encodedCharacter = (char) (character + encode.getShiftKey());
                     if (encodedCharacter > 'z') {
-                        messageCharStrem.append((char) (character - (26 - encode.getShiftKey())));
+                        messageCharStream.append((char) (character - (26 - encode.getShiftKey())));
                     } else {
-                        messageCharStrem.append(encodedCharacter);
+                        messageCharStream.append(encodedCharacter);
                     }
                 } else if (Character.isUpperCase(character)) {
                     char encodedCharacter = (char) (character + encode.getShiftKey());
                     if (encodedCharacter > 'Z') {
-                        messageCharStrem.append((char) (character - (26 - encode.getShiftKey())));
+                        messageCharStream.append((char) (character - (26 - encode.getShiftKey())));
                     } else {
-                        messageCharStrem.append(encodedCharacter);
+                        messageCharStream.append(encodedCharacter);
                     }
                 }
             } else {
-                messageCharStrem.append(character);
+                messageCharStream.append(character);
             }
         }
-        return messageCharStrem.toString();
+        return messageCharStream.toString();
     }
 
-    public String getRawText() {
-        return this.rawText;
+    public String getUserMessage() {
+        return this.userMessage;
     }
 
     public int getShiftKey() {

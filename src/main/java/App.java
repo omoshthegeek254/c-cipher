@@ -15,15 +15,15 @@ public class App {
             System.out.println("Enter the Shift key between 1-26: ");
             int userShift = Integer.parseInt(readerConsole.readLine());
 
-            System.out.println("Input String: " + userInput);
+            //System.out.println("Input String: " + userInput);
 
-            Encrypt newCaesar = new Encrypt(userInput, userShift);
-            String encryptedMessage = Encrypt.cipherText(newCaesar);
+            Encrypt userInputEncrypt = new Encrypt(userInput, userShift);
+            String encryptedMessage = Encrypt.cipherText(userInputEncrypt);
             System.out.println("Your Encrypted Message is : \n =====>OUTPUT<=====\n" + encryptedMessage +"\n=====================");
 
             Decrypt caesar = new Decrypt(encryptedMessage, userShift);
             String decrypted = Decrypt.decrypt(caesar);
-            System.out.println("Your Original / Decrypted Message is : \n=====>INPUT<====== \n" + decrypted +"\n=====================");
+            System.out.println("Your Original / Decrypted Message is : \n=====>OUTPUT<====== \n" + decrypted +"\n=====================");
 
             System.out.println("\n");
         } catch (Exception e) {
