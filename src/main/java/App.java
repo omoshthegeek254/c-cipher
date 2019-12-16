@@ -18,12 +18,12 @@ public class App {
             System.out.println("Input String: " + userInput);
 
             Encrypt newCaesar = new Encrypt(userInput, userShift);
-            String encrypted = Encrypt.cipherText(newCaesar);
-            System.out.println("Encrypted String: \n =====>OUTPUT<=====\n" + encrypted);
+            String encryptedMessage = Encrypt.cipherText(newCaesar);
+            System.out.println("Your Encrypted Message is : \n =====>OUTPUT<=====\n" + encryptedMessage +"\n=====================");
 
-            Decrypt caesar = new Decrypt(encrypted, userShift);
+            Decrypt caesar = new Decrypt(encryptedMessage, userShift);
             String decrypted = Decrypt.decrypt(caesar);
-            System.out.println("Decrypted String: \n=====>INPUT<====== \n" + decrypted);
+            System.out.println("Your Original / Decrypted Message is : \n=====>INPUT<====== \n" + decrypted +"\n=====================");
 
             System.out.println("\n");
         } catch (Exception e) {
