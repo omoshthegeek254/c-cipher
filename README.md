@@ -28,6 +28,7 @@
 
 - To run the application open the terminal in the directory where the App.java file is located
 - Run the command "javac App.java"
+- Run the command "java App" - at this point you should see the prompt of the application on the terminal
 - #NB - you must have jdk installed in your local machine 
 
 
