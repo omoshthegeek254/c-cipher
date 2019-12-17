@@ -1,3 +1,4 @@
+// sample testing logic
 public class Cypher {
 
     public  static String encrypt(String plaintext, int shift){
